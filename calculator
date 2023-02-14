@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>JavaScript Calculator</title>
+    <script type="text/javascript">
+      function calculate(expression) {
+        try {
+          return eval(expression);
+        } catch (error) {
+          return error;
+        }
+      }
+
+      function update(button) {
+        document.calculator.expression.value += button.value;
+      }
+
+      function clear() {
+        document.calculator.expression.value = "";
+      }
+    </script>
+  </head>
+  <body>
+    <form name="calculator">
+      <input type="text" name="expression" readonly />
+      <br />
+      <input type="button" value="1" onclick="update(this)" />
+      <input type="button" value="2" onclick="update(this)" />
+      <input type="button" value="3" onclick="update(this)" />
+      <input type="button" value="+" onclick="update(this)" />
+      <br />
+      <input type="button" value="4" onclick="update(this)" />
+      <input type="button" value="5" onclick="update(this)" />
+      <input type="button" value="6" onclick="update(this)" />
+      <input type="button" value="-" onclick="update(this)" />
+      <br />
+      <input type="button" value="7" onclick="update(this)" />
+      <input type="button" value="8" onclick="update(this)" />
+      <input type="button" value="9" onclick="update(this)" />
+      <input type="button" value="*" onclick="update(this)" />
+      <br />
+      <input type="button" value="CE" onclick="clear()" />
+      <input type="button" value="0" onclick="update(this)" />
+      <input type="button" value="=" onclick="document.calculator.expression.value = calculate(document.calculator.expression.value)" />
+      <input type="button" value="/" onclick="update(this)" />
+    </form>
+  </body>
